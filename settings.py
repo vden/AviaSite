@@ -38,6 +38,7 @@ USE_I18N = True
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/admin-media/'
+PHOTOS_ROOT = os.path.join(MEDIA_ROOT, 'photos')
 
 SECRET_KEY = '!eyi-oy16mx5kpbm-o01g6=o+wi3l9)-82hib%&4vjlq4e@v@s'
 
