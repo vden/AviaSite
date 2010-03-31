@@ -94,6 +94,9 @@ INSTALLED_APPS = (
     'fts',
     'diagnosis',
 
+    'tinymce',
+    'sorl.thumbnail',
+
     'cms',
     'publisher',
 
@@ -102,7 +105,7 @@ INSTALLED_APPS = (
     'cms.plugins.file',
     'cms.plugins.flash',
     'cms.plugins.link',
-    'cms.plugins.snippet',
+#    'cms.plugins.snippet',
     'cms.plugins.googlemap',
     'cms.plugins.teaser',
     'cms.plugins.video',
@@ -132,12 +135,25 @@ CMS_TEMPLATES = (
 )
 
 CMS_SOFTROOT = True
-CMS_MODERATOR = True
-CMS_PERMISSION = True
+CMS_MODERATOR = False
+CMS_PERMISSION = False
 CMS_REDIRECTS = True
 CMS_SEO_FIELDS = True
 CMS_MENU_TITLE_OVERWRITE = True
 CMS_HIDE_UNTRANSLATED = True
+
+CMS_TEMPLATE_INHERITANCE = True 
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,paste,searchreplace",
+    'theme': "advanced",
+'theme_advanced_toolbar_location' : "top",
+	'theme_advanced_toolbar_align' : "left",
+	'theme_advanced_buttons1' : "search,separator,undo,redo,separator,cut,copy,paste,separator,link,unlink,anchor,separator,tablecontrols,separator,hr",
+	'theme_advanced_buttons2' : "styleselect,separator,bold,italic,underline,separator,justifyleft,justifycenter,justifyright,justifyfull,separator,bullist,numlist,outdent,indent,separator,sub,sup,separator,forecolor,backcolor,separator,code",
+	'theme_advanced_buttons3' : "",
+	'auto_cleanup_word' : 'true',
+}
 
 
 try:

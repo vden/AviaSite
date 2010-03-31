@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
-{% block "content" %}
+{% block content %}
 
-{{ result }}
+{% for r in result %}
+{{r}} 1
+{% endfor %}
 
 {% endblock %}

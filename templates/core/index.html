@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+  {% autoescape off %}
+  {% for a in advantages %}
+  <li>{{ a.body }}</li>
+  {% endfor %}
+  {% endautoescape %}
+</ul>
+
+{% endblock %}

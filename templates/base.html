@@ -3,6 +3,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
+
+<style>
+#mainnav ul {
+    display: inline;
+	padding: 0;
+    margin: 0;
+}
+
+#mainnav  ul li {
+	padding: 0;
+    margin: 15px;
+    list-style: none;
+    display: inline;
+}
+</style>
 </head>
 
 <body>
@@ -10,10 +25,10 @@
 {% load cms_tags %}
 
 <h1>hello</h1>
-<div id="menu">{% show_menu 0 100 100 100 %}</div>
-<div id="breadcrumb">{% show_breadcrumb %}</div>
+<div id="mainnav"><ul>{% show_menu 1 %}</ul></div>
+<!-- <div id="breadcrumb">{% show_breadcrumb %}</div> -->
 <!-- <div id="languagechooser">{% language_chooser %}</div> -->
-<div id="content">{% placeholder "content" %}</div>
-<div id="left_column">{% placeholder "left_column" %}</div>
+<div id="content">{% block content %}{% placeholder "content" %}{% endblock %}</div>
+<div id="right_column">{% placeholder "right_column" %}</div>
 
 </body> </html>

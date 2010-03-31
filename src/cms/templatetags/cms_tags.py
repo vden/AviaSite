@@ -46,6 +46,8 @@ def show_menu(context, from_level=0, to_level=100, extra_inactive=0, extra_activ
     site = Site.objects.get_current()
     lang = get_language_from_request(request)
     current_page = request.current_page
+
+    print current_page
     if current_page == "dummy":
         context.update({'children':[],
                     'template':template,

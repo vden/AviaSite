@@ -9,9 +9,9 @@ urlpatterns = patterns('',
 
     (r'^admin/', include(admin.site.urls)),
 
-
+    (r'^tinymce/', include('tinymce.urls')),
     (r'^search/',include('core.urls')),
-
+    (r'^$', include('core.urls')),
     (r'^media/(?P<path>.*)', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 
     url(r'^', include('cms.urls')),

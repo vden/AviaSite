@@ -1,13 +1,15 @@
 from django.db import models
+from fts.backends.simple import SearchableModel
+from tinymce import models as tinymce_models
 
 # Create your models here.
 
-class Advantage(models.Model):
-    text = models.TextField(u"Text advantage", blank=False, null=False)
+class Advantage(SearchableModel):
+    body = tinymce_models.HTMLField()
     published = models.BooleanField(u"Published", default=False)
 
     def __unicode__(self):
-        return u"Adv: %s"%self.text[:100]
+        return u"Adv: %s"%self.body[:100]
 
     class Meta:
         pass
