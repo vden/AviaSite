@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('news.views',
-               (r'^$', 'index', {'page': None}),
+               url(r'^$', 'index', {'page': None}, name="news_index"),
                (r'^(?P<news_id>\d+)/', 'show_news'),
+               (r'^', include('cms.urls')),
 )

@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 
     (r'^tinymce/', include('tinymce.urls')),
-    (r'^search/',include('core.urls')),
+    (r'^search/', 'core.views.search'),
     (r'^$', include('core.urls')),
 
     (r'^news/', include('news.urls')),

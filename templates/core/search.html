@@ -2,8 +2,19 @@
 
 {% block content %}
 
-{% for r in result %}
-{{r}} 1
-{% endfor %}
+<div id="body">
 
+<h4>Результаты поиска</h4>
+
+<ol>
+  {% for r in result %}
+  <li>
+  <a href="{{ r.url }}">{{ r.title }}</a>
+  </li>
+  {% empty %}
+  Извините, ничего не нашлось. Попробуйте изменить запрос.
+  {% endfor %}
+</ol>
+
+</div>
 {% endblock %}

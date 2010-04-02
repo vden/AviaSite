@@ -1,13 +1,49 @@
 {% extends "base.html" %}
 
+{% load cms_tags %}
+{% load i18n thumbnail %}
+{% block mainnav %}
+
+<div style="font-size: 1.4em;line-height:5em;text-align:right;width:99%">{{ request.portal.slogan }}</div>
+
+<ul>{% show_menu 1 %}</ul>
+{% endblock %}
+
 {% block content %}
 
-<ul>
+<div style="width: 100%; clear: both;">
+<div style="width:48%; margin: 1%; margin-left: 0; clear: left; float: left">
+  <ul>
   {% autoescape off %}
-  {% for a in advantages %}
+  {% for a in advantages|slice:":2" %}
   <li>{{ a.body }}</li>
   {% endfor %}
   {% endautoescape %}
-</ul>
+  </ul>
+</div>
+<div style="width:48%; margin: 1%; margin-right: 0; clear: right; float: right">
+  <ul>
+  {% autoescape off %}
+  {% for a in advantages|slice:"2:" %}
+  <li>{{ a.body }}</li>
+  {% endfor %}
+  {% endautoescape %}
+  </ul>
+</div>
+<div style="width: 100%; clear: both; line-height:0"></div>
+</div>
+
+<div style="width: 100%; clear: both;">
+<h5>Новости компании</h5>
+  <div style="float:left;width:48%;">
+    <img style="float:left; margin:0.4em; margin-top:0;" src="{% thumbnail news.0.photo.name 120x120 upscale %}"/>
+    <div style="margin-left:130px;"><span style="font-size:0.8em">{{ r.date|date }}</span><br/><a href="{{ news.0.get_absolute_url }}">{{ news.0.title }}</a> <br/> {{ news.0.description }}</div>
+  </div>
+  <div style="float:right;width:48%;">
+    <img style="float:left; margin:0.4em; margin-top:0;" src="{% thumbnail news.1.photo.name 120x120 upscale %}"/>
+  <div style="margin-left:130px"><span style="font-size:0.8em">{{ r.date|date }}</span><br/><a href="{{ news.1.get_absolute_url }}">{{ news.1.title }}</a> <br/> {{ news.1.description }}</div> 
+  </div>
+   <div style="width: 100%; clear: both; text-align:right"><a href="{% url news_index %}">Все новости</a></div>
+</div>
 
 {% endblock %}

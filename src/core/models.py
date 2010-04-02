@@ -1,10 +1,12 @@
 from django.db import models
 import fts
 from tinymce import models as tinymce_models
+from django.utils.translation import ugettext_lazy as _
+
 
 class Advantage(fts.SearchableModel):
     body = tinymce_models.HTMLField()
-    published = models.BooleanField(u"Published", default=False)
+    published = models.BooleanField(_("Published"), default=False)
 
     objects = fts.SearchManager()
 
@@ -16,9 +18,16 @@ class Advantage(fts.SearchableModel):
         pass
 
 class Portal(models.Model):
-    slogan = models.CharField(u"Slogan", max_length=1023, blank=False, null=False)
-    phone =  models.CharField(u"Phone", max_length=255, blank=False, null=False)
+    slogan = models.CharField(_("Slogan"), max_length=1023, blank=False, null=False)
+    phone =  models.CharField(_("Phone"), max_length=255, blank=False, null=False)
     footer = tinymce_models.HTMLField()
+    advertising_title =  models.CharField(_("Advertising title"), max_length=255, blank=False, null=False)
+    advertising_body = tinymce_models.HTMLField()
 
     def __unicode__(self):
         return u"Portal meta-object"
+
+#    def save(self):
+     #   if len(Portal.objects.all()):
+      #      raise Exception(_("Only one portal object can be created!"))
+

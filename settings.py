@@ -60,6 +60,7 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
 #    'cms.middleware.multilingual.MultilingualURLMiddleware',
+    'core.middleware.PortalMiddleware',
 
 #    'django.middleware.csrf.CsrfResponseMiddleware',
 )

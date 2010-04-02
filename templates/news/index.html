@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
+
 {% block content %}
+<div id="body">
 
-{{ res }}
-
+  <div style="float: left"><h3>Новости</h3></div><div style="float:right;line-height:3em"><a href="/news/pressmap/">Pressmap</a></div>
+  
+  {% for r in res %}
+  <div style="width:90%;clear:both">
+     <img style="float:left; margin:0.4em; margin-top:0;" src="{% thumbnail r.photo.name 160x160 upscale %}"/>
+    <div style="margin-left:170px;"><span style="font-size:0.8em">{{ r.date|date }}</span><br/> <a href="{{ r.get_absolute_url }}">{{ r.title }}</a> <br/> {{ r.description }}</div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
