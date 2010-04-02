@@ -81,7 +81,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 LOCALE_PATHS = (
-    os.path.join(PROJECT_ROOT, 'i18n', 'locale'),
+    os.path.join(PROJECT_ROOT, 'locale'),
 )
 
 INSTALLED_APPS = (

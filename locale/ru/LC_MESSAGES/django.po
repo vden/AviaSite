@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-02 15:11+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: settings.py:124
+msgid "Russian"
+msgstr ""
+
+#: settings.py:136
+msgid "default"
+msgstr ""
+
+#: src/core/models.py:9 src/news/models.py:12
+msgid "Published"
+msgstr ""
+
+#: src/core/models.py:21
+msgid "Slogan"
+msgstr "Слоган"
+
+#: src/core/models.py:22 src/orders/models.py:9 src/orders/models.py:25
+msgid "Phone"
+msgstr "Телефон"
+
+#: src/core/models.py:24
+msgid "Advertising title"
+msgstr "Заголовок рекламного блока"
+
+#: src/news/models.py:7
+msgid "Title"
+msgstr "Заголовк"
+
+#: src/news/models.py:8
+msgid "Short description"
+msgstr "Краткое описание"
+
+#: src/news/models.py:11
+msgid "Publishing date"
+msgstr "Дата публикации"
+
+#: src/news/models.py:14
+msgid "Photo"
+msgstr "Фотография"
+
+#: src/orders/models.py:6 src/orders/models.py:22
+msgid "Name"
+msgstr "Имя"
+
+#: src/orders/models.py:7 src/orders/models.py:23
+msgid "E-mail"
+msgstr "E-mail"
+
+#: src/orders/models.py:8 src/orders/models.py:24
+msgid "Company"
+msgstr "Компания"
+
+#: src/orders/models.py:10 src/orders/models.py:26
+msgid "Subject"
+msgstr "Тема"
+
+#: src/orders/models.py:11
+msgid "Drawing number"
+msgstr "Чертежный номер"
+
+#: src/orders/models.py:12
+msgid "Decimal number"
+msgstr "Децимальный номер"
+
+#: src/orders/models.py:13
+msgid "PMO version"
+msgstr "Версия ПМО"
+
+#: src/orders/models.py:14 src/orders/models.py:27
+msgid "Message"
+msgstr "Текст сообщения"
+
+#: src/orders/views.py:19
+msgid "Thank you, your request sent! We will contact you shortly."
+msgstr "Спасибо! Ваша заявка принято, вскоре мы свяжемся с Вами."
+
