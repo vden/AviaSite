@@ -143,6 +143,7 @@ CMS_REDIRECTS = True
 CMS_SEO_FIELDS = True
 CMS_MENU_TITLE_OVERWRITE = True
 CMS_HIDE_UNTRANSLATED = True
+CMS_FLAT_URLS = False
 
 CMS_TEMPLATE_INHERITANCE = True 
 
@@ -157,6 +158,7 @@ TINYMCE_DEFAULT_CONFIG = {
 	'auto_cleanup_word' : 'true',
 }
 
+REQUEST_MAIL = "dummy@dummy"
 
 try:
     from settings_local import *

@@ -11,6 +11,10 @@ urlpatterns = patterns('',
 
     (r'^tinymce/', include('tinymce.urls')),
     (r'^search/', 'core.views.search'),
+    url(r'^repair/devices/(?P<device_id>\d+)/', 'diagnosis.views.device_info', name="device_info"),
+    url(r'^repair/devices/', 'diagnosis.views.index', name="device_index"),
+    url(r'^repair/order/', 'orders.views.repair', name="repair_order"),
+    url(r'^ati/order/', 'orders.views.ati', name="ati_order"),
     (r'^$', include('core.urls')),
 
     (r'^news/', include('news.urls')),

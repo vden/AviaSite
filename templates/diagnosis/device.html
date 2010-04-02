@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="body">
+<h5><a href="{% url device_index %}">Список диагностируемого оборудования</a></h5>
+  <h3>{{ device.title }}</h3>
+
+  <div style="text-align:right"><a href="{% url repair_order %}>Подать заявку на диагностику</a></div>
+  
+<ul>
+  {% for b in blocks %}
+  <li>{{ b }}</li>
+  {% endfor %}
+</ul>
+</div>
+
+{% endblock %}
+
+{% block right_column %}
+  <div class="infobox" id="devices">
+
+    <h4>Перечень систем</h4>
+    
+    <ul>
+    {% for d in all %}
+    <li><a href="{{ d.get_absolute_url }}">{{ d.title }}</a></li>
+    {% endfor %}
+
+  </ul>
+  
+  </div>
+{% endblock %}

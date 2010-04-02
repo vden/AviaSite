@@ -177,6 +177,7 @@ border: 1px grey solid;
   <form action="/search/" method="GET" name="searchform">
   <input type="text" id="search-input" name="search" {% if request.search_string %} value="{{ request.search_string }}" {% else %} value="поиск" class="search-default" {% endif %} onClick="if(this.className=='search-default'){this.value='';this.className=''}"/>
   <input type="submit" value="&rarr;">
+  </form>
 </div>
 <div id="top-links2"><a href="/news/">Пресс-центр</a>&nbsp;
   <a href="/contact-info">Контактная информация</a>&nbsp;
@@ -184,7 +185,7 @@ border: 1px grey solid;
 <div style="width: 100%; clear:both; line-height: 0px"></div>
 </div>
 
-<div id="mainnav">{% block mainnav %}<ul>{% show_menu 1 %}</ul>{% endblock %}</div>
+<div id="mainnav">{% block mainnav %}<ul>{% show_menu 1 2 %}</ul>{% endblock %}</div>
 
 <div id="document">
 <div style="width: 100%; clear:both; line-height: 0px"></div>

@@ -128,7 +128,7 @@ def show_menu(context, from_level=0, to_level=100, extra_inactive=0, extra_activ
                                                                     'lft')
         pages = list(pages)
         if root_page:
-            pages = [root_page] + pages
+            pages = [root_page,] + pages
         all_pages = pages[:]
         root_level = getattr(root_page, 'level', None)
         ids = []
