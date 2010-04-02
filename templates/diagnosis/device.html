@@ -5,7 +5,7 @@
 <h5><a href="{% url device_index %}">Список диагностируемого оборудования</a></h5>
   <h3>{{ device.title }}</h3>
 
-  <div style="text-align:right"><a href="{% url repair_order %}>Подать заявку на диагностику</a></div>
+  <div style="text-align:right"><a href="{% url repair_order %}">Подать заявку на диагностику</a></div>
   
 <ul>
   {% for b in blocks %}

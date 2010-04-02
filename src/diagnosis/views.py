@@ -8,7 +8,6 @@ def index(request):
     return render_to_response("diagnosis/index.html", {'all': devices}, context_instance=RequestContext(request))
 
 def device_info(request, device_id):
-    print "DI"
     devices = System.objects.all().filter(published=True)
     device = get_object_or_404(System, id=device_id, published=True)
 
