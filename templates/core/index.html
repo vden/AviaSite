@@ -2,48 +2,99 @@
 
 {% load cms_tags %}
 {% load i18n thumbnail %}
+
+{% block header_bg %}
+		<div class="header_center" style="background: url('{{ MEDIA_URL }}/i/header_img_index.jpg') no-repeat bottom left;">
+{% endblock %}
+
 {% block mainnav %}
 
-<div style="font-size: 1.4em;line-height:5em;text-align:right;width:99%">{{ request.portal.slogan }}</div>
+<!-- <div style="font-size: 1.4em;line-height:5em;text-align:right;width:99%">{{ request.portal.slogan }}</div> -->
 
-<ul>{% show_menu 1 %}</ul>
+								<!-- if menu on index --><div id="menu_on_index">&nbsp;</div><!-- /if menu on index -->
+								<div id="menu">
+									<table>
+										<tr>
+											{% show_menu 1 1 %}
+										</tr>
+									</table>
+								</div>
 {% endblock %}
 
 {% block content %}
+<table class="w100"><tr>
+										<td valign="top">
+											<h1>ЗАО ИФК ТЕХНИК &minus;</h1>
 
-<div style="width: 100%; clear: both;">
-<div style="width:48%; margin: 1%; margin-left: 0; clear: left; float: left">
-  <ul>
+											<div class="text bigger">
+												<p>одно из наиболее профессиональных предприятий в сфере разработки программ по послепродажному сопровождению Ил-96, Ту-204, Ан-148, сертифицированный поставщик авиационно-технических изделий, специалист в области создания и поддержания независимого возвратно-обменного фонда запасных частей.</p>
+												<div class="endblock">&nbsp;</div>
+											</div>
+										</td>
+										<td valign="top">
+											<!-- INFO MODULE -->
+											<div id="info_module">
+
+												<div class="prelat1p">
+													<div class="but_prev"><a href="javascript:;" onClick="slideSwitchPrev()"><img src="{{ MEDIA_URL }}/i/but_prev_active.jpg" width="34" height="34"></a></div>
+													<div class="but_next"><a href="javascript:;" onClick="slideSwitch()"><img src="{{ MEDIA_URL }}/i/but_next_active.jpg" width="34" height="34"></a></div>
+												</div>
+												<div align="center">
+													<div class="img"><img src="{{ MEDIA_URL }}/i/info_module_img.jpg"></div>
+	
+										<div class="text" style="width: 250px;">
+<div id="slideshow">
   {% autoescape off %}
-  {% for a in advantages|slice:":2" %}
-  <li>{{ a.body }}</li>
+  {% for a in advantages %}
+  <div class="{% if forloop.first %} active {% endif %}" >{{ a.body }}</div>
   {% endfor %}
   {% endautoescape %}
-  </ul>
 </div>
-<div style="width:48%; margin: 1%; margin-right: 0; clear: right; float: right">
-  <ul>
-  {% autoescape off %}
-  {% for a in advantages|slice:"2:" %}
-  <li>{{ a.body }}</li>
-  {% endfor %}
-  {% endautoescape %}
-  </ul>
-</div>
-<div style="width: 100%; clear: both; line-height:0"></div>
-</div>
+														<div class="endblock">&nbsp;</div>
+													</div>
+												</div>
+											</div>
+											<!-- /INFO MODULE -->
+										</td>
+									</tr>
+								</table>
+								
+								<hr>
 
-<div style="width: 100%; clear: both;">
-<h5>Новости компании</h5>
-  <div style="float:left;width:48%;">
-    <img style="float:left; margin:0.4em; margin-top:0;" src="{% thumbnail news.0.photo.name 120x120 upscale %}"/>
-    <div style="margin-left:130px;"><span style="font-size:0.8em">{{ r.date|date }}</span><br/><a href="{{ news.0.get_absolute_url }}">{{ news.0.title }}</a> <br/> {{ news.0.description }}</div>
-  </div>
-  <div style="float:right;width:48%;">
-    <img style="float:left; margin:0.4em; margin-top:0;" src="{% thumbnail news.1.photo.name 120x120 upscale %}"/>
-  <div style="margin-left:130px"><span style="font-size:0.8em">{{ r.date|date }}</span><br/><a href="{{ news.1.get_absolute_url }}">{{ news.1.title }}</a> <br/> {{ news.1.description }}</div> 
-  </div>
-   <div style="width: 100%; clear: both; text-align:right"><a href="{% url news_index %}">Все новости</a></div>
-</div>
+								<div class="title_with_left_border"><a href="/news/">Новости, события</a></div>
+								
+								<table class="w100">
+									<tr>
+					{% for n in news|slice:":2" %}
+										<td valign="top">
+											<div class="news_img"><img src="{% thumbnail n.photo.name 80x80 upscale %}" width="80" height="80"></div>
+										</td>
+										<td valign="top" class="w50">
+											<div class="news_one">
+												<div class="date"><span>{{ n.date|date }}</span></div>
+												<div class="title"><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></div>
+											</div>
 
+										</td>
+					{% endfor %}
+									</tr>
+									<tr>
+					{% for n in news|slice:"2:4" %}
+										<td valign="top">
+											<div class="news_img"><img src="{% thumbnail n.photo.name 80x80 upscale %}" width="80" height="80"></div>
+										</td>
+										<td valign="top" class="w50">
+											<div class="news_one">
+												<div class="date"><span>{{ n.date|date }}</span></div>
+												<div class="title"><a href="{{ n.get_absolute_url }}">{{ n.title }}</a></div>
+											</div>
+
+										</td>
+					{% endfor %}
+									</tr>
+								</table>
+								
+							</div>
+							<!-- /COL CENTER -->
 {% endblock %}
+

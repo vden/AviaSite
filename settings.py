@@ -25,7 +25,7 @@ sys.path.insert(0, APPS_ROOT)
 
 APPEND_SLASH=True
 
-DATE_FORMAT = 'j.m.Y'
+DATE_FORMAT = 'd.m.Y'
 TIME_FORMAT = 'H:i'
 
 TIME_ZONE = 'Europe/Moscow'

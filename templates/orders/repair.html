@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
 {% load cms_tags %}
+{% block crumbs %}
+
+ <div id="crumbs"><a href="{{ request.current_page.parent.get_absolute_url }}"><i>{{ request.current_page.parent.get_title }}</i></a></div>
+
+{% endblock %}
+
 {% block content %}
 <div id="body">
-  <h5><a href="{{ request.current_page.parent.get_absolute_url }}">{{ request.current_page.parent.get_title }}</a></h5>
-<h3>{{ request.current_page.get_title }}</h3>
+<h1 class="with_style">{{ request.current_page.get_title }}</h1>
 
 {% if not message %}
   

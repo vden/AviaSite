@@ -1,32 +1,63 @@
 {% extends "base.html" %}
+{% load cms_tags %}
+
+{% block mainnav %}
+
+								<div id="menu">
+									<table>
+										<tr>
+											{% show_menu 1 1 %}
+										</tr>
+									</table>
+								</div>
+{% endblock %}
+
+{% block crumbs %}
+
+ <div id="crumbs"><a href="{% url device_index %}"><i>Список диагностируемого оборудования</i></a></div>
+
+{% endblock %}
 
 {% block content %}
 <div id="body">
-<h5><a href="{% url device_index %}">Список диагностируемого оборудования</a></h5>
-  <h3>{{ device.title }}</h3>
+  <h1 class="with_style">{{ device.title }}</h1>
 
-  <div style="text-align:right"><a href="{% url repair_order %}">Подать заявку на диагностику</a></div>
+	<div class="text">
   
 <ul>
   {% for b in blocks %}
   <li>{{ b }}</li>
   {% endfor %}
 </ul>
+
+	</div>
+
+	<div><input type="button" onClick="location.href='{% url repair_order %}'" value="Подать заявку на диагностику" class="button_blue_big"></div>
+
 </div>
 
 {% endblock %}
 
 {% block right_column %}
-  <div class="infobox" id="devices">
+								<!-- ATI SEARCH -->
+								<div id="ati_search">
+									<div class="endblock">&nbsp;</div>
+										<div class="in">
 
-    <h4>Перечень систем</h4>
-    
     <ul>
     {% for d in all %}
     <li><a href="{{ d.get_absolute_url }}">{{ d.title }}</a></li>
     {% endfor %}
-
-  </ul>
+		</div></div>
   
+  </div>
+								<div class="title_with_left_border">{{ request.portal.advertising_title }}</div>
+								
+	<div>
+
+    {% autoescape off %}
+    {{ request.portal.advertising_body }}
+    {% endautoescape %}
+    
   </div>
 {% endblock %}

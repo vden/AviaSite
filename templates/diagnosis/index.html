@@ -3,9 +3,9 @@
 {% load cms_tags %}
 {% block content %}
 <div id="body">
-  <h5><a href="{{ request.current_page.parent.get_absolute_url }}">{{ request.current_page.parent.get_title }}</a></h5>
-<h3>{{ request.current_page.get_title }}</h3>
+<h1 class="with_style">{{ request.current_page.get_title }}</h1>
 
+<div class="text">
 {% placeholder "content" %}
 
   <b>Лаборатория АиРЭО диагностирует неисправности и проводит ремонтно восстановительные работы авиационных блоков следующих систем ВС:</b>
@@ -16,6 +16,7 @@
     <li>И т.д.</li>
   </ul>
   
+</div>
 </div>
 
 {% endblock %}

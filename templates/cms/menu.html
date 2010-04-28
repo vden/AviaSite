@@ -1,0 +1,33 @@
+{% load cms_tags cache %}
+{% for child in children %}
+
+{% if not child.parent.parent %}
+
+<td valign="top"><table><tr><td class="transparent m {% if child.selected %}select{% else %}as_link{% endif %} {% if child.ancestor %}ancestor select{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
+	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+
+</td></tr><tr>
+    <td>
+
+{% if child.childrens %}
+<div class="podmenu"><ul>
+        {% show_menu from_level to_level extra_inactive extra_active template child %}
+    </ul></div>
+{% endif %}
+</td></tr></table></td>
+
+
+
+{% else %}
+
+<li class="{% if child.selected %}now{% endif %} {%if forloop.last %}end_li{%endif %}">
+	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+
+</li>
+
+
+
+{% endif %}
+
+{% endfor %}
+
