@@ -3,7 +3,7 @@
 
 {% if not child.parent.parent %}
 
-<td valign="top"><table><tr><td class="transparent m {% if child.selected %}select{% else %}as_link{% endif %} {% if child.ancestor %}ancestor select{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
+<td valign="top"><table><tr><td  onClick="location.href='{{ child.get_absolute_url }}'" class="transparent m {% if child.selected %}select{% else %}as_link{% endif %} {% if child.ancestor %}ancestor select{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
 	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
 
 </td></tr><tr>

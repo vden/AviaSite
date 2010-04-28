@@ -1,19 +1,55 @@
 {% extends "base.html" %}
 
 {% load thumbnail %}
+{% load cms_tags %}
+{% block mainnav %}
+
+								<div id="menu">
+									<table>
+										<tr>
+											{% show_menu 1 1 %}
+										</tr>
+									</table>
+								</div>
+{% endblock %}
+
+{% block crumbs %}
+     <div id="crumbs">
+                                                <nobr>
+                                                        <a href="{% url news_index %}">Пресс-центр</a>
+                                                </nobr>
+                                        </div>
+{% endblock %}
 
 {% block content %}
 
 <div id="body"><br/>
-  
-  <div style="float: left"><a href="{% url news_index %}">Все новости</a></div><div style="float:right"><a href="/news/pressmap/">Pressmap</a></div><br/><br/>
-  
+
 {% autoescape off %}
-  <div style="width:90%;clear:both">
-     <img style="float:left; margin:0.4em; margin-top:0;" src="{% thumbnail obj.photo.name 160x160 upscale %}"/>
-    <div style="margin-left:170px;"><span style="font-size:0.8em">{{ obj.date|date }}</span><br/><b>{{ obj.title }}</b> <br/> <i>{{ obj.description }}</i><br/>
-    {{ obj.body }}</div>
-  </div>
+
+                 <h1 class="with_style">{{ obj.title }}</h1>
+                                                                
+                                                                <div class="endblock">&nbsp;</div>
+                                                                
+                                                                <!-- NEWS LIST -->
+                                                                <table class="w100">
+                                                                        <tr>
+                                                                                <td valign="top">
+                                                                                        <div class="news_img"><img src="{% thumbnail obj.photo.name 280x280 upscale %}"></div>
+                                                                                </td>
+                                                                                <td valign="top" class="w100">
+                                                                                        <div class="news_one">
+                                                                                                <div class="date">{{ obj.date|date }}</div>
+                                                                                                <div class="text">
+										{{ obj.body }}
+                                                                                                        <div class="endblock">&nbsp;</div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </td>
+                                                                        </tr>
+                                                                </table>
+                                                                <!-- /NEWS LIST -->
+  
 {% endautoescape %}
 
   </div>
