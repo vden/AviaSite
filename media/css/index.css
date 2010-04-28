@@ -204,8 +204,8 @@ A {
 	cursor: pointer;
 }
 #menu A {
-	margin-right: 10px;
-	margin-left: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
 	color: #fff;
 	text-decoration: none;
 }
@@ -222,6 +222,7 @@ A {
 	background: #fff;
 	border: 1px solid #e5e5e5;
 	margin: 0px 2px 0px 2px;
+	width: 230px;
 }
 #menu .podmenu A {
 	color: #3479ab;
