@@ -20,7 +20,7 @@
 
 {% else %}
 
-<li class="{% if child.selected %}now{% endif %} {%if forloop.last %}end_li{%endif %}">
+<li class="{% if child.selected %}now{% endif %} {%if forloop.last %}end_li{%endif %}" onClick="location.href='{{ child.get_absolute_url }}'">
 	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
 
 </li>
