@@ -90,5 +90,5 @@ msgstr "Текст сообщения"
 
 #: src/orders/views.py:19
 msgid "Thank you, your request sent! We will contact you shortly."
-msgstr "Спасибо! Ваша заявка принято, вскоре мы свяжемся с Вами."
+msgstr "Спасибо! Ваша заявка принята, вскоре мы свяжемся с Вами."
 

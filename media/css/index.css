@@ -509,6 +509,14 @@ HR {
 	padding: 6px 24px 6px 0px;
 	font-size: 12px;
 }
+
+#form_as_table TH {
+	padding: 6px 24px 6px 0px;
+	font-size: 12px;
+	text-align: right;
+	font-weight: normal;
+}
+		
 #form_as_table .pole_text {
 	border: 1px solid #999999;
 	width: 240px;

@@ -16,8 +16,37 @@
 {% placeholder "content" %}
 
   <form action="{{ url }}" method="post">
-{{ form.as_p }}
-<input type="submit" value="Отправить" />
+<div id="form_as_table">
+<table class="w100">
+
+<tr><td align="right" width="30%" valign="top">&nbsp;</td>
+<td width="70%" valign="top"> <div class="help_text">
+<span class="zv">*</span> - поля отмеченные звездочкой обязательны для заполнения
+</div>
+
+</td></tr>
+
+{% for field in form %}
+<tr><th>
+        {{ field.label_tag }}
+</th><td> 
+    <div class="fieldWrapper">
+        {{ field.errors }}
+    </div>
+	{{ field }}</td>
+</tr>
+{% endfor %}
+
+<tr><td align="center" colspan="2">
+<div style="margin-right: 70px;">
+
+					<input type="reset" value="Очистить" class="button_grey">
+					<input type="submit" value="Отправить" class="button_blue">
+				</div>
+
+</td></tr>
+</table>
+</div>
 </form>
 
 {% else %}
