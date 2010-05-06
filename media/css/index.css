@@ -673,3 +673,19 @@ td.ancestor ul {
 table#menu td ul {
 	display: none;
 }
+
+.header-bg-1 {
+	background-image: url("/media/i/header_img_index.jpg") !important;
+}
+
+.header-bg-2 {
+	background-image: url("/media/i/m1.jpg") !important;
+}
+
+.header-bg-3 {
+	background-image: url("/media/i/m4.jpg") !important;
+}
+
+.header-bg-4 {
+	background-image: url("/media/i/p3.jpg") !important;
+}

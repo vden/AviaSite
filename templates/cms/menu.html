@@ -3,16 +3,18 @@
 
 {% if not child.parent.parent %}
 
-<td valign="top"><table><tr><td  onClick="location.href='{{ child.get_absolute_url }}'" class="transparent m {% if child.selected %}select{% else %}as_link{% endif %} {% if child.ancestor %}ancestor select{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
+<td valign="top"><table><tr><td  onClick="location.href='{{ child.get_absolute_url }}'" onMouseOver="change_bg_over({{forloop.counter}});" onMouseOut="change_bg_out()" class="transparent m {% if child.selected %}select{% else %}as_link{% endif %} {% if child.ancestor %}ancestor select{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
 	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
 
 </td></tr><tr>
     <td>
 
 {% if child.childrens %}
-<div class="podmenu"><ul>
-        {% show_menu from_level to_level extra_inactive extra_active template child %}
-    </ul></div>
+<div class="podmenu">
+  <ul>
+	{% show_menu from_level to_level extra_inactive extra_active template child %}
+  </ul>
+</div>
 {% endif %}
 </td></tr></table></td>
 
@@ -24,7 +26,6 @@
 	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
 
 </li>
-
 
 
 {% endif %}

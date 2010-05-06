@@ -40,3 +40,11 @@ function SetContentHeight()
 $(document).ready(function() {
     //SetContentHeight();
 });
+
+function change_bg_over(num) {
+	$("#header_div").addClass("header-bg-"+String(num));
+}
+
+function change_bg_out() {
+	$("#header_div").removeClass().addClass("header_center");
+}

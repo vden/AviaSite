@@ -41,6 +41,7 @@ function slideSwitch() {
 <body>
 
 {% load cms_tags %}
+{% load bg %}
 
         <!-- HEADER -->
             <div align="center">
@@ -49,7 +50,7 @@ function slideSwitch() {
 					
 						<div align="center">
 {% block header_bg %}
-<div class="header_center" style="background: url('{{ MEDIA_URL }}i/header_img_interior_ati_form.jpg') no-repeat bottom left;">
+<div class="header_center" id="header_div" style="background: url('{% bg request %}') no-repeat bottom left;">
 {% endblock %}
 							
 								<!-- 1PX -->

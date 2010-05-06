@@ -9,6 +9,8 @@ from news.models import News
 
 from django.template import RequestContext
 
+import settings
+
 def search(request):
     
     search_string = request.GET.get('search', '')

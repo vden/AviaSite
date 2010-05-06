@@ -15,9 +15,10 @@ urlpatterns = patterns('',
     url(r'^repair/devices/', 'diagnosis.views.index', name="device_index"),
     url(r'^repair/order/', 'orders.views.repair', name="repair_order"),
     url(r'^ati/order/', 'orders.views.ati', name="ati_order"),
-    (r'^$', include('core.urls')),
 
     (r'^news/', include('news.urls')),
+
+    (r'^$', include('core.urls')),
 
     (r'^media/(?P<path>.*)', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 
