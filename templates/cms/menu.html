@@ -4,7 +4,7 @@
 {% if not child.parent.parent %}
 
 <td valign="top"><table><tr><td  onClick="location.href='{{ child.get_absolute_url }}'" onMouseOver="change_bg_over({{forloop.counter}});" onMouseOut="change_bg_out()" class="transparent m {% if child.selected %}select{% else %}as_link{% endif %} {% if child.ancestor %}ancestor select{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
-	<a href="{{ child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+	<a href="{{ child.get_absolute_url }}">{% ifequal forloop.counter0 2 %}Диагностика и<br/>восстановительный ремонт{% else %}{{ child.get_menu_title }}{% endifequal %}</a>
 
 </td></tr><tr>
     <td>
