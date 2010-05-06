@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^repair/devices/', 'diagnosis.views.index', name="device_index"),
     url(r'^repair/order/', 'orders.views.repair', name="repair_order"),
     url(r'^ati/order/', 'orders.views.ati', name="ati_order"),
+    url(r'^ati/devices/', 'catalog.views.index', name="ati_index"),
 
     (r'^news/', include('news.urls')),
 

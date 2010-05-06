@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% load cms_tags %}
+
+{% block content %}
+<div id="body">
+<h1 class="with_style">{{ request.current_page.get_title }}</h1>
+
+<div class="text">
+{% placeholder "content" %}
+	<div class="text">
+										<p>Кроме хранящегося на складах компании оборудования, «ИФК Техник» предлагает к поставке любые блоки, агрегаты, узлы и механизмы для самолетов типа Ил-96, Ту-204, Ан-148 по специальному заказу.</p>
+										<p>&nbsp;</p>
+										<p>Если Вы не нашли необходимое изделие в предлагаемом списке, <a href="{% url ati_order %}">оставьте свой запрос</a> и мы свяжемся с Вами в самое ближайшее время.</p>
+
+										<p>&nbsp;</p>
+									<div class="endblock">&nbsp;</div>
+								</div>
+								
+								<!-- FILTER -->
+								<div id="filter">
+									<table class="w100">
+										<tr>
+											<td valign="top" class="w100">
+												<div class="sort">
+
+													<p>Отсортировано: <span>по названию КИ</span> <a href="#">по шифру КИ</a></p>
+													<p>Быстрый переход: <span>А - Е</span> <a href="#">Ж - Л</a> <a href="#">М - Т</a> <a href="#">У - Я</a></p>
+												</div>
+
+											</td>
+											<td valign="top">
+																			
+												<!-- ATI SEARCH IN -->
+												<div id="ati_search" style="width: 540px;">
+													<div class="endblock">&nbsp;</div>
+														<div class="in">
+															
+															<form method="post" action=".">
+																<table>
+																	<tr>
+
+																		<td valign="top">
+																			<label for="id_param1">Введите наименование КИ</label>
+																		</td>
+																		<td valign="top">
+																			<label for="id_param2">Введите шифр КИ</label>
+																		</td>
+																		<td valign="top" align="right">&nbsp;</td>
+																	</tr>
+
+																	<tr>
+																		<td valign="top">
+																			<input type="text" name="param1" id="id_param1" class="pole_text" style="width: 250px; margin-right: 14px;">
+																		</td>
+																		<td valign="top">
+																			<input type="text" name="param2" id="id_param2" class="pole_text" style="width: 148px; margin-right: 14px;">
+																		</td>
+																		<td valign="top" align="right"><input type="image" src="{{ MEDIA_URL}}i/ati_search_button.jpg"></td>
+																	</tr>
+
+																</table>
+															</form>
+															
+														</div>
+												</div>
+												<!-- /ATI SEARCH IN -->
+											
+											</td>
+										</tr>
+									</table>
+								</div>
+
+								
+								<div id="list_table">
+									<table class="w100">
+										<tr>
+											<th valign="top" class="th">Код системы</th>
+											<th valign="top" class="th">Наименование КИ</th>
+											<th valign="top" class="th">ШИФР КИ</th>
+											<th valign="top" class="th">Чертежный номер</th>
+
+											<th valign="top" class="th end_th">Версия ПО</th>
+										</tr>
+										<tr>
+											<td valign="top" class="td">2</td>
+											<td valign="top" class="td">Блок  управления</td>
+											<td valign="top" class="td">76</td>
+											<td valign="top" class="td">-</td>
+
+											<td valign="top" class="td">-</td>
+										</tr>
+										<tr>
+											<td valign="top" class="td">3</td>
+											<td valign="top" class="td">Заслонка вторая</td>
+											<td valign="top" class="td">234</td>
+											<td valign="top" class="td">-</td>
+
+											<td valign="top" class="td">-</td>
+										</tr>
+										<tr>
+											<td valign="top" class="td">4</td>
+											<td valign="top" class="td">Блок  управления с предохранительным клапаном</td>
+											<td valign="top" class="td">332</td>
+											<td valign="top" class="td">-</td>
+
+											<td valign="top" class="td">-</td>
+										</tr>
+									</table>
+								</div>
+								
+
+
+  
+</div>
+</div>
+
+{% endblock %}
+
+{% block right_column_container %}
+
+{% endblock %}

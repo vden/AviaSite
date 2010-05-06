@@ -95,6 +95,7 @@ INSTALLED_APPS = (
     'orders',
     'fts',
     'diagnosis',
+	'catalog',
 
     'tinymce',
     'sorl.thumbnail',
