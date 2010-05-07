@@ -689,3 +689,11 @@ table#menu td ul {
 .header-bg-4 {
 	background-image: url("/media/i/p3.jpg") !important;
 }
+
+.active-sort-link { 
+	background: #fff;
+	color: #f4251f;
+	padding: 2px 8px 2px 8px;
+	margin-right: 10px;
+	text-decoration: none;	 
+}

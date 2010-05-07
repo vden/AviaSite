@@ -6,8 +6,40 @@
 <div id="body">
 <h1 class="with_style">{{ request.current_page.get_title }}</h1>
 
-<div class="text">
-{% placeholder "content" %}
+  <script>
+  
+$(document).ready(function() { 
+    $("#rent-table").tablesorter(); 
+    $("#sort-name-link").click(function() {
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero 
+        var sorting = [[1,0]]; 
+        // sort on the first column 
+        $("#rent-table").trigger("sorton",[sorting]); 
+        // return false to stop default link action
+        $("#sort-cipher-link").removeClass("active-sort-link")
+        $("#sort-name-link").removeClass().addClass("active-sort-link")
+        return false; 
+    });
+    $("#sort-cipher-link").click(function() { 
+        // set sorting column and direction, this will sort on the first and third column the column index starts at zero 
+        var sorting = [[2,0]]; 
+        // sort on the first column 
+        $("#rent-table").trigger("sorton",[sorting]); 
+        // return false to stop default link action
+        $("#sort-name-link").removeClass("active-sort-link")
+        $("#sort-cipher-link").removeClass().addClass("active-sort-link")
+        return false; 
+  });
+
+  $("#quick-links a").click(function() {
+        $("#quick-links a").removeClass();
+        $(this).addClass("active-sort-link");
+        return true;
+  });
+  
+});
+</script>
+  
 	<div class="text">
 										<p>Кроме хранящегося на складах компании оборудования, «ИФК Техник» предлагает к поставке любые блоки, агрегаты, узлы и механизмы для самолетов типа Ил-96, Ту-204, Ан-148 по специальному заказу.</p>
 										<p>&nbsp;</p>
@@ -24,8 +56,8 @@
 											<td valign="top" class="w100">
 												<div class="sort">
 
-													<p>Отсортировано: <span>по названию КИ</span> <a href="#">по шифру КИ</a></p>
-													<p>Быстрый переход: <span>А - Е</span> <a href="#">Ж - Л</a> <a href="#">М - Т</a> <a href="#">У - Я</a></p>
+													<p>Отсортировано: <a class="active-sort-link" id="sort-name-link" href="#">по названию КИ</a> <a href="#" id="sort-cipher-link">по шифру КИ</a></p>
+													<p id="quick-links">Быстрый переход: <a class="active-sort-link" href="#a">А - Е</a> <a href="#zh">Ж - Л</a> <a href="#m">М - Т</a> <a href="#u">У - Я</a></p>
 												</div>
 
 											</td>
@@ -51,10 +83,10 @@
 
 																	<tr>
 																		<td valign="top">
-																			<input type="text" name="param1" id="id_param1" class="pole_text" style="width: 250px; margin-right: 14px;">
+																			<input type="text" name="name" id="id_param1" class="pole_text" style="width: 250px; margin-right: 14px;" value="{{ name }}">
 																		</td>
 																		<td valign="top">
-																			<input type="text" name="param2" id="id_param2" class="pole_text" style="width: 148px; margin-right: 14px;">
+																			<input type="text" name="cipher" id="id_param2" class="pole_text" style="width: 148px; margin-right: 14px;" value="{{ cipher }}">
 																		</td>
 																		<td valign="top" align="right"><input type="image" src="{{ MEDIA_URL}}i/ati_search_button.jpg"></td>
 																	</tr>
@@ -71,41 +103,29 @@
 									</table>
 								</div>
 
-								
+								{% load quick_link %}
 								<div id="list_table">
-									<table class="w100">
-										<tr>
+									<table class="w100" id="rent-table">
+										<thead>
 											<th valign="top" class="th">Код системы</th>
 											<th valign="top" class="th">Наименование КИ</th>
 											<th valign="top" class="th">ШИФР КИ</th>
 											<th valign="top" class="th">Чертежный номер</th>
 
 											<th valign="top" class="th end_th">Версия ПО</th>
-										</tr>
+										</thead>
+										{% for i in lst %}
 										<tr>
-											<td valign="top" class="td">2</td>
-											<td valign="top" class="td">Блок  управления</td>
-											<td valign="top" class="td">76</td>
-											<td valign="top" class="td">-</td>
+											<td valign="top" class="td">{% ifchanged i.name.0 %}
+											   {% quick_link i.name %}
+											  {% endifchanged %}{{ i.code }}</td>
+											<td valign="top" class="td">{{ i.name }}</td>
+											<td valign="top" class="td">{{ i.cipher }}</td>
+											<td valign="top" class="td">{{ i.draw_number|default:"-" }}</td>
 
-											<td valign="top" class="td">-</td>
+											<td valign="top" class="td">{{ i.soft_version|default:"-" }}</td>
 										</tr>
-										<tr>
-											<td valign="top" class="td">3</td>
-											<td valign="top" class="td">Заслонка вторая</td>
-											<td valign="top" class="td">234</td>
-											<td valign="top" class="td">-</td>
-
-											<td valign="top" class="td">-</td>
-										</tr>
-										<tr>
-											<td valign="top" class="td">4</td>
-											<td valign="top" class="td">Блок  управления с предохранительным клапаном</td>
-											<td valign="top" class="td">332</td>
-											<td valign="top" class="td">-</td>
-
-											<td valign="top" class="td">-</td>
-										</tr>
+										{% endfor %}
 									</table>
 								</div>
 								

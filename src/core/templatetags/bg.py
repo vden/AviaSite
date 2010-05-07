@@ -4,9 +4,7 @@ import settings, re
 register = template.Library()
 
 @register.simple_tag
-def bg(request):
-	print request.path
-	
+def bg(request):	
 	img = u"%si/header_img_index.jpg"
 	bgs = {r'^/company': u"%si/header_img_index.jpg", 
 		r'^/toir': u"%si/m1.jpg",
