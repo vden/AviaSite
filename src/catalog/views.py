@@ -11,11 +11,9 @@ def __search_catalog(name, cipher):
 	res = Equipment.objects.order_by('name')
 	if name and len(name): 
 		name = re.sub(r'[\\\|/,\.\-]', '', name)
-		print name
 		res = res.filter(name__icontains=name)
 	if cipher and len(cipher): 
 		cipher = re.sub(r'[\\\|/,\.\-\ ]', '', cipher)
-		print cipher
 		res = res.filter(cipher__icontains=cipher)
 
 	return res

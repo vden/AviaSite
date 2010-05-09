@@ -12,8 +12,7 @@ def quick_link(name):
 		ur'^[Ж-Л]$': "zh",
 		ur'^[М-Т]$': "m",
 		ur'^[У-Я]$': "u"}
-	
-	print l
+
 	for k in rx.keys():
 		if re.match(k, l):
 			
