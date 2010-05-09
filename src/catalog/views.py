@@ -5,7 +5,7 @@ from django.template import RequestContext
 from catalog.models import Equipment
 
 from django.core.paginator import Paginator
-import re
+import re, settings
 
 def __search_catalog(name, cipher):
 	res = Equipment.objects.order_by('name')
@@ -41,7 +41,7 @@ def index(request):
 			res = Equipment.objects.order_by('name') 
 
 	page = page == 0 and 1 or page
-	paginator = Paginator(res, 20)
+	paginator = Paginator(res, settings.CATALOG_OBJECTS_PER_PAGE)
 	res = paginator.page(page)	
 
 	return render_to_response("catalog/index.html", {'lst': res, 'name': name, 'cipher': cipher}, context_instance=RequestContext(request))

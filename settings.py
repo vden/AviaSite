@@ -160,6 +160,7 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 REQUEST_MAIL = "dummy@dummy"
+CATALOG_OBJECTS_PER_PAGE = 20
 
 try:
     from settings_local import *
