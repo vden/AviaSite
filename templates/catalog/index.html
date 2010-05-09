@@ -114,7 +114,7 @@ $(document).ready(function() {
 
 											<th valign="top" class="th end_th">Версия ПО</th>
 										</thead>
-										{% for i in lst %}
+										{% for i in lst.object_list %}
 										<tr>
 											<td valign="top" class="td">{% ifchanged i.name.0 %}
 											   {% quick_link i.name %}
@@ -125,12 +125,28 @@ $(document).ready(function() {
 
 											<td valign="top" class="td">{{ i.soft_version|default:"-" }}</td>
 										</tr>
+										{% empty %}
+										<tr>
+											<td valign="top" class="td" colspan="5">К сожалению, ничего не найдено. Измените условия поиска и попробуйте снова.</td>
+										</tr>
 										{% endfor %}
 									</table>
-								</div>
-								
+									<div class="pagination">
+        {% if lst.has_previous %}
+            <a class="prev-link" href="?page={{ lst.previous_page_number }}"><< Назад</a>
+        {% endif %}
 
+        {% if lst.has_next %}
+            <a class="next-link" href="?page={{ lst.next_page_number }}">Далее >></a>
+        {% endif %}
+    </span>
+</div>
 
+{% autoescape off %}
+<br/><i>За более подробной информацией обращайтесь в наш офис: + 7 {{ request.portal.phone }}, <a href="mailto:info@ifc-technik.ru">info@ifc-technik.ru</a></i>
+{% endautoescape %}
+
+</div>
   
 </div>
 </div>

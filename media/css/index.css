@@ -697,3 +697,16 @@ table#menu td ul {
 	margin-right: 10px;
 	text-decoration: none;	 
 }
+
+.pagination { 
+	width: 100%;
+	padding-bottom: 1em;
+}
+
+.pagination .next-link { 
+float: right;
+}
+
+.pagination .prev-link { 
+float: left;
+}
