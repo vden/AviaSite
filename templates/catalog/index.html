@@ -31,12 +31,23 @@ $(document).ready(function() {
         return false; 
   });
 
+  
+  if (location.hash) {
+        var rx = { '#a': 0, '#zh': 1, '#m': 2, '#u': 3};
+        n = rx[location.hash];
+        $("#quick-links a").removeClass();
+        $("#quick-links a:eq("+n+")").addClass("active-sort-link");
+  } else {
+        $("#quick-links a").removeClass();
+        $("#quick-links a:eq(0)").addClass("active-sort-link");
+  }
+  
   $("#quick-links a").click(function() {
         $("#quick-links a").removeClass();
         $(this).addClass("active-sort-link");
         return true;
   });
-  
+
 });
 </script>
   
@@ -57,7 +68,7 @@ $(document).ready(function() {
 												<div class="sort">
 
 													<p>Отсортировано: <a class="active-sort-link" id="sort-name-link" href="#">по названию КИ</a> <a href="#" id="sort-cipher-link">по шифру КИ</a></p>
-													<p id="quick-links">Быстрый переход: <a class="active-sort-link" href="#a">А - Е</a> <a href="#zh">Ж - Л</a> <a href="#m">М - Т</a> <a href="#u">У - Я</a></p>
+													<p id="quick-links">Быстрый переход: <a href="?page={{ pages.a }}#a">А - Е</a> <a href="?page={{pages.zh}}#zh">Ж - Л</a> <a href="?page={{pages.m}}#m">М - Т</a> <a href="?page={{pages.u}}#u">У - Я</a></p>
 												</div>
 
 											</td>
@@ -116,9 +127,9 @@ $(document).ready(function() {
 										</thead>
 										{% for i in lst.object_list %}
 										<tr>
-											<td valign="top" class="td">{% ifchanged i.name.0 %}
-											   {% quick_link i.name %}
-											  {% endifchanged %}{{ i.code }}</td>
+											<td valign="top" class="td">{% ifchanged i.menu_anchor %}
+											  <a name="{{ i.menu_anchor %}"></a>
+											  {% endifchanged %}{{ i.code }} </td>
 											<td valign="top" class="td">{{ i.name }}</td>
 											<td valign="top" class="td">{{ i.cipher }}</td>
 											<td valign="top" class="td">{{ i.draw_number|default:"-" }}</td>

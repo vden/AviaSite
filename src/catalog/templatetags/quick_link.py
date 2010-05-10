@@ -8,14 +8,15 @@ register = template.Library()
 def quick_link(name):
 	l = name[0].upper()
 	
-	rx = {ur'^[А-Е]$': "a",
+	rx = {	
+		ur'^[А-Е]$': "a",
 		ur'^[Ж-Л]$': "zh",
 		ur'^[М-Т]$': "m",
-		ur'^[У-Я]$': "u"}
+		ur'^[У-Я]$': "u"
+	     }
 
 	for k in rx.keys():
-		if re.match(k, l):
-			
+		if re.match(k, l):			
 			return u"""<a name="%s"></a>"""%rx[k]
 
 	return u""
