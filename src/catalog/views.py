@@ -50,7 +50,7 @@ def index(request):
 		ur'^[У-Я]$': "u"
 	     }
 
-	rx_page = {}
+	rx_page = {'a': -1, 'zh': -1, 'm': -1, 'u': -1}
 
 	current_num = 0
 	for r in res:
@@ -59,7 +59,8 @@ def index(request):
 		for k in rx.keys():
 			if re.match(k, l):	
 				r.menu_anchor = rx[k]
-				rx_page[rx[k]] = current_num // settings.CATALOG_OBJECTS_PER_PAGE + 1
+				if rx_page[rx[k]] < 0:
+					rx_page[rx[k]] = current_num // settings.CATALOG_OBJECTS_PER_PAGE + 1
 				break
 		current_num += 1
 
