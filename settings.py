@@ -161,6 +161,7 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 REQUEST_MAIL = "dummy@dummy"
+FEEDBACK_MAIL = "dummy@dummy.ru"
 CATALOG_OBJECTS_PER_PAGE = 20
 
 try:
