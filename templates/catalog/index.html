@@ -128,7 +128,7 @@ $(document).ready(function() {
 										{% for i in lst.object_list %}
 										<tr>
 											<td valign="top" class="td">{% ifchanged i.menu_anchor %}
-											  <a name="{{ i.menu_anchor %}"></a>
+											  <a name="{{ i.menu_anchor }}"></a>
 											  {% endifchanged %}{{ i.code }} </td>
 											<td valign="top" class="td">{{ i.name }}</td>
 											<td valign="top" class="td">{{ i.cipher }}</td>

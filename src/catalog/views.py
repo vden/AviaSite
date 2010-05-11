@@ -59,7 +59,7 @@ def index(request):
 	
 		for k in rx.keys():
 			if re.match(k, l):	
-				r.menu_anchor = rx[k]
+				r.set_menu_anchor(rx[k])
 				if not rx[k] in rx_page_set:
 					rx_page[rx[k]] = current_num // settings.CATALOG_OBJECTS_PER_PAGE + 1
 					rx_page_set.append(rx[k])
