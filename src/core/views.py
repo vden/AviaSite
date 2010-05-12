@@ -31,7 +31,9 @@ def sitemap(request):
 
 	level1st = Page.objects.filter(parent=soft_root, published=True, in_navigation=True)
 	
-	l2 = {}
-#	for p in level1st:
-		#l2[
-	return HttpResponse(soft_root)
+	for p in level1st:
+		p.mchildren = Page.objects.filter(parent=p, published=True, in_navigation=True)
+		for pp in p.mchildren:
+			pp.mchildren = Page.objects.filter(parent=pp, published=True, in_navigation=True)
+
+	return render_to_response("core/sitemap.html", {"root": soft_root, "objects": level1st}, context_instance=RequestContext(request))

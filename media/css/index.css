@@ -710,3 +710,19 @@ float: right;
 .pagination .prev-link { 
 float: left;
 }
+
+div.sitemap ul li {
+	padding: 0.4em;
+}
+
+div.sitemap {
+	padding-left: 1.6em;
+}
+
+ul ul li {
+	margin-left: 2em;
+}
+
+ul ul ul li {
+	margin-left: 4em;
+}

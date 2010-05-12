@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('core.views',
-	(r'^sitemap/$', 'sitemap'),
+	url(r'^sitemap/$', 'sitemap', name="core-sitemap"),
                (r'^$', 'index'),
 )
