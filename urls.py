@@ -19,7 +19,7 @@ urlpatterns = patterns('',
 
     (r'^news/', include('news.urls')),
 
-    (r'^$', include('core.urls')),
+    (r'^', include('core.urls')),
 
     (r'^media/(?P<path>.*)', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 

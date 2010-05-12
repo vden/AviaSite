@@ -25,3 +25,13 @@ def index(request):
     advantages = Advantage.objects.all().order_by('?')[:4]
     news = News.objects.all().order_by('-date').filter(published=True)[:2]
     return render_to_response("core/index.html", {"advantages": advantages, "news": news}, context_instance=RequestContext(request))
+
+def sitemap(request):
+	soft_root = Page.objects.filter(soft_root = True)[0]
+
+	level1st = Page.objects.filter(parent=soft_root, published=True, in_navigation=True)
+	
+	l2 = {}
+#	for p in level1st:
+		#l2[
+	return HttpResponse(soft_root)
