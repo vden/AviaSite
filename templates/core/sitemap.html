@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% block mainnav %}
+
+								<div id="menu">
+									<table>
+										<tr>
+											{% show_menu 1 1 %}
+										</tr>
+									</table>
+								</div>
+{% endblock %}
+
+{% block title %}
+Карта сайта
+{% endblock %}
+
+{% block content %}
+
+<div id="body">
+
+<h4>Карта сайта</h4>
+
+<div class="sitemap">
+<ul>
+  {% for r in objects %}
+  <li>
+  <a href="{{ r.get_absolute_url }}">{{ r.get_title }}</a>
+	<ul>
+	{% for rr in r.mchildren %}
+		<li><a href="{{ rr.get_absolute_url }}">{{ rr.get_title }}</a>
+			<ul>
+			{% for rrr in rr.mchildren %}
+				<li><a href="{{rrr.get_absolute_url}}">{{ rrr.get_title }}</a></li>
+			{% endfor %}
+			</ul>
+		</li>
+	{% endfor %}
+	</ul>
+  </li>
+  {% endfor %}
+</ul>
+</div>
+</div>
+
+{% endblock %}
