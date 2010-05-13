@@ -23,6 +23,7 @@ def search(request):
 
 def index(request):
     advantages = Advantage.objects.all().order_by('id')
+
     news = News.objects.all().order_by('-date').filter(published=True)[:2]
     return render_to_response("core/index.html", {"advantages": advantages, "news": news}, context_instance=RequestContext(request))
 
