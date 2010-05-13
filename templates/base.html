@@ -193,7 +193,7 @@ function slideSwitch() {
 	<div>
 
     {% autoescape off %}
-    {{ request.portal.advertising_body }}
+    {% show_placeholder_by_id "contents" "right-block-page" %}
     {% endautoescape %}
     
   </div>
