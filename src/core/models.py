@@ -14,6 +14,9 @@ class Advantage(fts.SearchableModel):
         return u"Adv: %s"%self.body[:100]
     str = __unicode__
 
+    def get_absolute_url(self):
+	return u"/"
+
     class Meta:
         pass
 
@@ -22,7 +25,7 @@ class Portal(models.Model):
     phone =  models.CharField(_("Phone"), max_length=255, blank=False, null=False)
     footer = tinymce_models.HTMLField()
     advertising_title =  models.CharField(_("Advertising title"), max_length=255, blank=False, null=False)
-    advertising_body = tinymce_models.HTMLField()
+  #  advertising_body = tinymce_models.HTMLField()
 
     def __unicode__(self):
         return u"Portal meta-object"

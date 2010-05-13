@@ -5,6 +5,8 @@ import settings
 from orders.models import *
 from django.core.urlresolvers import reverse
 
+from datetime import datetime
+
 def _form(request, klass, view):
     err = False
     message = ""
@@ -19,11 +21,12 @@ def _form(request, klass, view):
             message = _("Thank you, your request sent! We will contact you shortly.")
             from django.core.mail import send_mail
             f = f.cleaned_data
+            f["date"] = datetime.now().strftime("%d %B %Y, %H:%M")
 
             if not settings.DEBUG:
-                send_mail(f['subject'], "%(name)s (%(company)s), %(phone)s, %(sender)s\n\n%(message)s"%f, f['sender'], settings.REQUEST_MAIL)
+                send_mail(u"REQUEST FROM SITE: %s"%f['subject'], u"%(name)s (%(company)s), %(phone)s, %(sender)s\n\n%(message)s\n\n%(date)s"%f, f['sender'], settings.REQUEST_MAIL)
             else:
-                print "MAIL: %(name)s (%(company)s), %(phone)s, %(sender)s\n\n%(message)s"%f
+                print "MAIL: %(name)s (%(company)s), %(phone)s, %(sender)s\n\n%(message)s\n\n%(date)s"%f
 
     else:
         f = klass()
