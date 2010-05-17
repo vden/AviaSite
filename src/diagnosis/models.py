@@ -13,7 +13,7 @@ class System(fts.SearchableModel):
         return "/repair/devices/%s/"%self.id
 
 class SystemBlock(fts.SearchableModel):
-    title = models.CharField(u"System block name", max_length = 32768, blank = False, null = False)
+    title = models.CharField(u"System block name", max_length = 2000, blank = False, null = False)
     system = models.ForeignKey(System)
     published = models.BooleanField(u"Published")
 
